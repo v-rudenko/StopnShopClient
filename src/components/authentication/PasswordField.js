@@ -22,7 +22,7 @@ const PasswordField = () => {
     <div>
       <div className="password_field_div">
         <input required className="login_input_field" type={passwordType} />
-        <button onClick={TogglePassword}>
+        <button type="button" onClick={TogglePassword}>
           <img src={passwordIcon} alt="" />
         </button>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import RefreshToken from "../authentication/RefreshToken";
 import styles from "./Header.module.css";
 
 const Header = (props) => {
@@ -24,6 +25,7 @@ const Header = (props) => {
   } else {
     return (
       <header className={styles.top_bar}>
+        <RefreshToken></RefreshToken>
         <button onClick={props.onLogout}>Log out</button>
       </header>
     );
