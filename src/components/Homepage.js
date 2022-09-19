@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import ProductsList from "./UI/products/ProductList";
 
 const Homepage = () => {
-
-  return(
-    <h1>Todo:</h1>
+  return (
+    <>
+      <ProductsList></ProductsList>
+    </>
   );
 };
 

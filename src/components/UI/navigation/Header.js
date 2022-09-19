@@ -1,5 +1,5 @@
 import React from "react";
-import RefreshToken from "../authentication/RefreshToken";
+import RefreshToken from "../../authentication/RefreshToken";
 import styles from "./Header.module.css";
 
 const Header = (props) => {

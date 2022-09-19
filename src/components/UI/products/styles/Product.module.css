@@ -1,0 +1,22 @@
+.image {
+  max-height: 138px;
+  max-width: 174px;
+}
+
+.product_div {
+  max-height: 450px;
+  max-width: 240px;
+  min-width: 240px;
+  border-left: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  padding: 53px 23px 16px 23px;
+}
+.product_div img {
+  display: block;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+}/*# sourceMappingURL=Product.module.css.map */
