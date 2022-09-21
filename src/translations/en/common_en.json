@@ -1,0 +1,10 @@
+{
+  "form": {
+    "login": {
+      "title": "Log in to {{service}}",
+      "email": "Email",
+      "password": "Password",
+      "log_in": "Log in"
+    }
+  }
+}

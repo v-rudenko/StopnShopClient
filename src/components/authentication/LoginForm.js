@@ -1,10 +1,13 @@
 import React from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
+import { useTranslation } from "react-i18next";
 
 const api = "http://localhost:8000/api/token";
 
 const LoginForm = (props) => {
+  const { t, i18n } = useTranslation("common");
+
   async function getToken(username, password) {
     const response = await fetch("http://localhost:8000/api/token/", {
       method: "POST",
@@ -14,9 +17,7 @@ const LoginForm = (props) => {
       },
       body: JSON.stringify({ username: username, password: password }),
     });
-    // console.log("Response:", response);
     const data = await response.json();
-    // console.log("Status:", data);
     return {
       data: data,
       status: response.status,
@@ -37,7 +38,7 @@ const LoginForm = (props) => {
 
       props.onLoginSuccess();
     } else if (result.status === 401) {
-      alert("Wrong Login or Password!")
+      alert("Wrong Login or Password!");
     }
   };
 
@@ -51,13 +52,15 @@ const LoginForm = (props) => {
               <label className="logo amp">&</label>
               <label className="logo sec_s">S</label>
             </div>
-            <div className="login_text">Log in to Stop & Shop</div>
-            <label>Email</label>
+            <div className="login_text">
+              {t("form.login.title", { service: "Stop & Shop" })}
+            </div>
+            <label>{t("form.login.email")}</label>
             <input className="login_input_field" type="text" />
-            <label>Password</label>
+            <label>{t("form.login.password")}</label>
             <PasswordField />
             <button value="" type="submit" className="btn btn-primary">
-              Log in
+              {t("form.login.log_in")}
             </button>
           </div>
         </div>
