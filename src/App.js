@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import LoginForm from "./components/authentication/LoginForm";
 import RegisterForm from "./components/authentication/RegisterForm";
 import "./App.css";
-import Header from "./components/UI/Header";
+import Header from "./components/UI/navigation/Header";
 import Homepage from "./components/Homepage";
+import { useTranslation } from "react-i18next";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState("");
@@ -39,8 +40,9 @@ const App = (props) => {
           <Header
             IsLoggedIn={IsLoggedIn}
             onButtonPressed={onAuthButtonHandler}
+
           />
-          <LoginForm onLoginSuccess={loginHandler} />
+          <LoginForm onLoginSuccess={loginHandler}/>
         </div>
       );
     }
@@ -63,8 +65,9 @@ const App = (props) => {
         onButtonPressed={onAuthButtonHandler}
         onLogout={logoutHandler}
       />
-      <Homepage />
+      
       <h1>Logged in: {IsLoggedIn.toString()}</h1>
+      <Homepage />
     </>
   );
 };

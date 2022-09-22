@@ -1,0 +1,14 @@
+{
+  "form": {
+    "login": {
+      "title": "Log in to {{service}}",
+      "email": "Email",
+      "password": "Password",
+      "log_in": "Log in"
+    }
+  },
+  "header": {
+    "sign_in": "Sign-in",
+    "log_out": "Log out"
+  }
+}

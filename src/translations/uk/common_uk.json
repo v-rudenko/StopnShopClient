@@ -1,0 +1,14 @@
+{
+  "form": {
+    "login": {
+      "title": "Увійдіть до {{service}}",
+      "email": "Ел. пошта",
+      "password": "Пароль",
+      "log_in": "Увійти"
+    }
+  },
+  "header": {
+    "sign_in": "Увійти",
+    "log_out": "Вийти"
+  }
+}
