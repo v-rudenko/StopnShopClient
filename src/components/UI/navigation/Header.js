@@ -15,7 +15,7 @@ const Header = (props) => {
           onClick={props.onButtonPressed}
           className="login_button btn btn-primary btn-sm"
         >
-          Sign-in
+          {t("header.sign_in")}
         </button>
         {/* <button
           value={"register"}
@@ -32,7 +32,7 @@ const Header = (props) => {
         <RefreshToken></RefreshToken>
         <button onClick={() => {i18n.changeLanguage('en')}}>Eng</button>
         <button onClick={() => {i18n.changeLanguage('uk')}}>Укр</button>
-        <button onClick={props.onLogout}>Log out</button>
+        <button onClick={props.onLogout}>{t("header.log_out")}</button>
       </header>
     );
   }

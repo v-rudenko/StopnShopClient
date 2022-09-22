@@ -6,5 +6,9 @@
       "password": "Password",
       "log_in": "Log in"
     }
+  },
+  "header": {
+    "sign_in": "Sign-in",
+    "log_out": "Log out"
   }
 }
