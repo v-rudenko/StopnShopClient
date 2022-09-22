@@ -1,0 +1,36 @@
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.form_centring_div {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.form_sizing_div {
+  z-index: 100;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: #dadbf1;
+  width: 100%;
+  max-width: 640px;
+  border: 1px solid lightgray;
+  padding: 25px;
+  border-radius: 20px;
+}

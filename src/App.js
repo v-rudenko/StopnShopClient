@@ -7,7 +7,7 @@ import Homepage from "./components/Homepage";
 import { useTranslation } from "react-i18next";
 
 const App = (props) => {
-  const [showAuthForm, setShowAuthForm] = useState("");
+  const [showAuthForm, setShowAuthForm] = useState(undefined);
 
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -16,9 +16,14 @@ const App = (props) => {
       setIsLoggedIn(true);
     }
   });
+  
+  const hideFormHandler = (event) => {
+    setShowAuthForm(undefined)
+  }
 
   const loginHandler = () => {
     setIsLoggedIn(true);
+    setShowAuthForm(undefined)
   };
   const logoutHandler = () => {
     localStorage.removeItem("IsLoggedIn");
@@ -33,31 +38,6 @@ const App = (props) => {
     console.log(event.target.value);
   };
 
-  if (IsLoggedIn === false) {
-    if (showAuthForm === "login") {
-      return (
-        <div>
-          <Header
-            IsLoggedIn={IsLoggedIn}
-            onButtonPressed={onAuthButtonHandler}
-
-          />
-          <LoginForm onLoginSuccess={loginHandler}/>
-        </div>
-      );
-    }
-    if (showAuthForm === "register") {
-      return (
-        <div>
-          <Header
-            IsLoggedIn={IsLoggedIn}
-            onButtonPressed={onAuthButtonHandler}
-          />
-          <RegisterForm />
-        </div>
-      );
-    }
-  }
   return (
     <>
       <Header
@@ -67,6 +47,7 @@ const App = (props) => {
       />
       
       <h1>Logged in: {IsLoggedIn.toString()}</h1>
+      {showAuthForm && <LoginForm onHideForm={hideFormHandler} onLoginSuccess={loginHandler}></LoginForm>}
       <Homepage />
     </>
   );

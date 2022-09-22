@@ -2,6 +2,7 @@ import React from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import { useTranslation } from "react-i18next";
+import classes from "./styles/LoginForm.module.css"
 
 const api = "http://localhost:8000/api/token";
 
@@ -42,11 +43,16 @@ const LoginForm = (props) => {
     }
   };
 
+  const hideFormHandler = () => {
+    props.onHideForm();
+  };
+
   return (
     <div>
       <form value="bob" onSubmit={LoginSubmitHandler} action="">
-        <div className="login_form_centring_div">
-          <div className="login_form_sizing_div">
+        <div className={classes.form_centring_div}>
+        <div className={classes.backdrop} onClick={hideFormHandler}></div>
+          <div className={classes.form_sizing_div}>
             <div className="logo_div">
               <label className="logo s">S</label>
               <label className="logo amp">&</label>
