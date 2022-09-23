@@ -67,16 +67,16 @@ const LoginForm = (props) => {
             <div className="logo_div">
               <div className={classes.logo_inner_div}>
                 <label className="logo s">S</label>
-                <label className="logo amp">&</label>
+                <label className={classes.logo_amp}>&</label>
                 <label className="logo sec_s">S</label>
               </div>
             </div>
-            <div className="login_text">
+            <div className={classes.login_text}>
               {t("form.login.title", { service: "Stop & Shop" })}
             </div>
-            <label>{t("form.login.email")}</label>
+            <label className={classes.label_text}>{t("form.login.email")}</label>
             <input className="login_input_field" type="text" />
-            <label>{t("form.login.password")}</label>
+            <label className={classes.label_text}>{t("form.login.password")}</label>
             <PasswordField />
             <button value="" type="submit" className={`btn btn-primary ${classes.submit_button}`}>
               {t("form.login.log_in")}
