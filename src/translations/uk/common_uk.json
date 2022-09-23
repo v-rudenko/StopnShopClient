@@ -4,7 +4,11 @@
       "title": "Увійдіть до {{service}}",
       "email": "Ел. пошта",
       "password": "Пароль",
-      "log_in": "Увійти"
+      "log_in": "Увійти",
+      "afterword": {
+        "text": "Вперше у {{service}}?",
+        "link": "Зареєструйтесь."
+      }
     }
   },
   "header": {

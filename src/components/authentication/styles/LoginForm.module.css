@@ -10,7 +10,7 @@
 
 .form_centring_div {
   position: fixed;
-  top: 30vh;
+  top: 15vh;
   left: 10%;
   width: 80%;
   z-index: 100;
@@ -31,4 +31,25 @@
   border: 1px solid lightgray;
   padding: 25px;
   border-radius: 20px;
+}
+
+.close img {
+  float: right;
+  cursor: pointer;
+}
+
+.logo_inner_div {
+  width: 140px;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.submit_button {
+  margin-top: 20px;
+}
+
+.afterword {
+  margin-top: 10px;
 }/*# sourceMappingURL=LoginForm.module.css.map */

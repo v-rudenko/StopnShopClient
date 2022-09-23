@@ -4,7 +4,11 @@
       "title": "Log in to {{service}}",
       "email": "Email",
       "password": "Password",
-      "log_in": "Log in"
+      "log_in": "Log in",
+      "afterword": {
+        "text": "New to {{service}}?",
+        "link": "Create your account."
+      }
     }
   },
   "header": {

@@ -16,26 +16,34 @@ const App = (props) => {
       setIsLoggedIn(true);
     }
   });
-  
+
   const hideFormHandler = (event) => {
-    setShowAuthForm(undefined)
-  }
+    setShowAuthForm(undefined);
+  };
 
   const loginHandler = () => {
     setIsLoggedIn(true);
-    setShowAuthForm(undefined)
+    setShowAuthForm(undefined);
   };
   const logoutHandler = () => {
     localStorage.removeItem("IsLoggedIn");
     localStorage.removeItem("token");
     localStorage.removeItem("refresh");
-    setShowAuthForm("")
+    setShowAuthForm("");
     setIsLoggedIn(false);
   };
 
   const onAuthButtonHandler = (event) => {
     setShowAuthForm(event.target.value);
     console.log(event.target.value);
+  };
+
+  const toRegisterHandler = () => {
+    setShowAuthForm("register");
+  };
+
+  const toLoginHandler = () => {
+    setShowAuthForm("login");
   };
 
   return (
@@ -45,9 +53,22 @@ const App = (props) => {
         onButtonPressed={onAuthButtonHandler}
         onLogout={logoutHandler}
       />
-      
+
       <h1>Logged in: {IsLoggedIn.toString()}</h1>
-      {showAuthForm && <LoginForm onHideForm={hideFormHandler} onLoginSuccess={loginHandler}></LoginForm>}
+      {showAuthForm === "login" && (
+        <LoginForm
+          onHideForm={hideFormHandler}
+          onLoginSuccess={loginHandler}
+          toRegister={toRegisterHandler}
+        ></LoginForm>
+      )}
+      {showAuthForm === "register" && (
+        <RegisterForm
+          onHideForm={hideFormHandler}
+          onLoginSuccess={loginHandler}
+          toLogin={toLoginHandler}
+        ></RegisterForm>
+      )}
       <Homepage />
     </>
   );

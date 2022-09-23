@@ -2,7 +2,9 @@ import React from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import { useTranslation } from "react-i18next";
-import classes from "./styles/LoginForm.module.css"
+
+import classes from "./styles/LoginForm.module.css";
+import closeIcon from "./styles/images/icon-close.svg";
 
 const api = "http://localhost:8000/api/token";
 
@@ -47,16 +49,27 @@ const LoginForm = (props) => {
     props.onHideForm();
   };
 
+
   return (
     <div>
       <form value="bob" onSubmit={LoginSubmitHandler} action="">
         <div className={classes.form_centring_div}>
-        <div className={classes.backdrop} onClick={hideFormHandler}></div>
+          <div className={classes.backdrop} onClick={hideFormHandler}></div>
           <div className={classes.form_sizing_div}>
+            <div className={classes.close}>
+              <img
+                onClick={hideFormHandler}
+                src={closeIcon}
+                width="24px"
+                height="24px"
+              />
+            </div>
             <div className="logo_div">
-              <label className="logo s">S</label>
-              <label className="logo amp">&</label>
-              <label className="logo sec_s">S</label>
+              <div className={classes.logo_inner_div}>
+                <label className="logo s">S</label>
+                <label className="logo amp">&</label>
+                <label className="logo sec_s">S</label>
+              </div>
             </div>
             <div className="login_text">
               {t("form.login.title", { service: "Stop & Shop" })}
@@ -65,9 +78,10 @@ const LoginForm = (props) => {
             <input className="login_input_field" type="text" />
             <label>{t("form.login.password")}</label>
             <PasswordField />
-            <button value="" type="submit" className="btn btn-primary">
+            <button value="" type="submit" className={`btn btn-primary ${classes.submit_button}`}>
               {t("form.login.log_in")}
             </button>
+            <div className={classes.afterword}>{t("form.login.afterword.text", { service: "Stop & Shop" })} <a onClick={() => {props.toRegister()}} href="#">{t("form.login.afterword.link")}</a></div>
           </div>
         </div>
       </form>
