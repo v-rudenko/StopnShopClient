@@ -1,9 +1,10 @@
 import React from "react";
 
+
 const RefreshToken = () => {
 
   async function Refresh(refresh) {
-    const response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
+    const response = await fetch("http://127.0.0.1:8000/account/api/token/refresh/", {
       method: "POST",
       headers: {
         Accept: "application/json",

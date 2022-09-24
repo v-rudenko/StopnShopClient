@@ -6,13 +6,13 @@ import { useTranslation } from "react-i18next";
 import classes from "./styles/LoginForm.module.css";
 import closeIcon from "./styles/images/icon-close.svg";
 
-const api = "http://localhost:8000/api/token";
+const api = "http://127.0.0.1:8000/account/api/token/";
 
 const LoginForm = (props) => {
   const { t, i18n } = useTranslation("common");
 
   async function getToken(username, password) {
-    const response = await fetch("http://localhost:8000/api/token/", {
+    const response = await fetch(api, {
       method: "POST",
       headers: {
         Accept: "application/json",

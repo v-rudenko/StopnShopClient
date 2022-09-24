@@ -8,18 +8,44 @@ import { useTranslation } from "react-i18next";
 
 const RegisterForm = (props) => {
   const { t, i18n } = useTranslation("common");
+  const registerEndpoint = "http://127.0.0.1:8000/account/register/";
 
-  async function Auth() {
-    const response = await fetch("http://localhost:3000/server.txt");
-    const text = await response.text();
-    console.log(text);
+  async function Register(username, email, password, confirmPassword) {
+    const response = await fetch(registerEndpoint, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+        password2: confirmPassword,
+      }),
+    });
+    const data = await response.json();
+    return {
+      data: data,
+      status: response.status,
+    };
   }
 
-  const LoginSubmitHandler = (event) => {
+  const registerSubmitHandler = async (event) => {
     event.preventDefault();
-    Auth()
-    // console.log(event)
+    // console.log(event);
+    const username = event.target[0].value;
+    const email = event.target[1].value;
+    const password = event.target[2].value;
+    const confirmPassword = event.target[4].value;
+    if (password !== confirmPassword) {
+      alert("Password needs to be equal!");
+    } else {
+      const result = Register(username, email, password, confirmPassword);
+      console.log(result);
+    }
   };
+  // console.log(username);
 
   const hideFormHandler = () => {
     props.onHideForm();
@@ -27,7 +53,7 @@ const RegisterForm = (props) => {
 
   return (
     <div>
-      <form value="bob" onSubmit={LoginSubmitHandler} action="">
+      <form value="bob" onSubmit={registerSubmitHandler} action="">
         <div className={classes.form_centring_div}>
           <div className={classes.backdrop} onClick={hideFormHandler}></div>
           <div className={classes.form_sizing_div}>
@@ -46,21 +72,35 @@ const RegisterForm = (props) => {
                 <label className="logo sec_s">S</label>
               </div>
             </div>
-            <div className={classes.login_text}>
-              Register Form
-            </div>
+            <div className={classes.login_text}>Register Form</div>
             <label className={classes.label_text}>Username</label>
             <input className="login_input_field" type="text" />
             <label className={classes.label_text}>E-mail</label>
             <input className="login_input_field" type="email" />
-            <label className={classes.label_text}>{t("form.login.password")}</label>
+            <label className={classes.label_text}>
+              {t("form.login.password")}
+            </label>
             <PasswordField />
             <label className={classes.label_text}>Confirm Password</label>
             <PasswordField />
-            <button value="" type="submit" className={`btn btn-primary ${classes.submit_button}`}>
+            <button
+              value=""
+              type="submit"
+              className={`btn btn-primary ${classes.submit_button}`}
+            >
               {t("form.login.log_in")}
             </button>
-            <div className={classes.afterword}>New to Stop & Shop? <a onClick={() => {props.toLogin()}} href="#">Create your account</a></div>
+            <div className={classes.afterword}>
+              New to Stop & Shop?{" "}
+              <a
+                onClick={() => {
+                  props.toLogin();
+                }}
+                href="#"
+              >
+                Create your account
+              </a>
+            </div>
           </div>
         </div>
       </form>
