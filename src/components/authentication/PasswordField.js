@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./PasswordField.css";
 import showIcon from "../images/show-password.svg";
 import hideIcon from "../images/hide-password.svg";
 import classes from "./styles/PasswordField.module.css"

@@ -9,6 +9,8 @@
   // src: url("../../../fonts/StudioScriptCTT.ttf");
 }
 
+$input_field_padding: 10px;
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -45,6 +47,7 @@
   border-radius: 20px;
   input {
     border: none;
+    padding: $input_field_padding;
   }
 }
 
@@ -90,4 +93,12 @@
   font-size: 13px;
   font-weight: 700;
   margin-top: 5px;
+}
+
+.alert_div {
+  background-color: #efcbcb;
+  margin: 10px -25px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

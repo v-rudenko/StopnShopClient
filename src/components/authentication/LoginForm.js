@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import { useTranslation } from "react-i18next";
@@ -10,6 +10,8 @@ const api = "http://127.0.0.1:8000/account/api/token/";
 
 const LoginForm = (props) => {
   const { t, i18n } = useTranslation("common");
+
+  const [loginFailed, setLoginFailed] = useState(false);
 
   async function getToken(username, password) {
     const response = await fetch(api, {
@@ -29,6 +31,7 @@ const LoginForm = (props) => {
 
   const LoginSubmitHandler = async (event) => {
     event.preventDefault();
+    setLoginFailed(false);
     const username = event.target[0].value;
     const password = event.target[1].value;
 
@@ -41,13 +44,19 @@ const LoginForm = (props) => {
 
       props.onLoginSuccess();
     } else if (result.status === 401) {
-      alert("Wrong Login or Password!");
+      // alert("Wrong Login or Password!");
+      setLoginFailed(true);
     }
   };
 
   const hideFormHandler = () => {
     props.onHideForm();
   };
+
+  let loginFailedAlert = undefined;
+  if (loginFailed === true) {
+    loginFailedAlert = <div className={classes.alert_div}>Invalid email or password!</div>
+  }
 
 
   return (
@@ -74,8 +83,9 @@ const LoginForm = (props) => {
             <div className={classes.login_text}>
               {t("form.login.title", { service: "Stop & Shop" })}
             </div>
+            {loginFailedAlert}
             <label className={classes.label_text}>{t("form.login.email")}</label>
-            <input className="login_input_field" type="text" />
+            <input className="login_input_field" type="text" required/>
             <label className={classes.label_text}>{t("form.login.password")}</label>
             <PasswordField />
             <button value="" type="submit" className={`btn btn-primary ${classes.submit_button}`}>
