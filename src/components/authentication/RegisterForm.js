@@ -42,7 +42,6 @@ const RegisterForm = (props) => {
       setRegisterFailedAlert(
         <AuthError>{t("error.register.passwords_not_match")}</AuthError>
       );
-      alert("baboon");
     } else {
       setRegisterFailedAlert(undefined);
       const result = Register(username, email, password, confirmPassword);
