@@ -57,7 +57,7 @@ const LoginForm = (props) => {
   let loginFailedAlert = undefined;
   if (loginFailed === true) {
     loginFailedAlert = (
-      <AuthError>Invalid email or password.</AuthError>
+      <AuthError>{t("error.login.user_not_exists")}</AuthError>
     );
   }
 
@@ -99,7 +99,7 @@ const LoginForm = (props) => {
               type="submit"
               className={`btn btn-primary ${classes.submit_button}`}
             >
-              {t("form.login.log_in")}
+              {t("form.login.button")}
             </button>
             <div className={classes.afterword}>
               {t("form.login.afterword.text", { service: "Stop & Shop" })}{" "}

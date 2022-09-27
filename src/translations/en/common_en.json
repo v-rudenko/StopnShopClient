@@ -1,15 +1,26 @@
 {
   "form": {
     "login": {
-      "title": "Log in to {{service}}",      
+      "title": "Log in to {{service}}",
+      "username": "Username",
       "email": "Email",
       "password": "Password",
-      "log_in": "Log in",
+      "button": "Log in",
       "afterword": {
         "text": "New to {{service}}?",
         "link": "Create your account."
       }
+    },
+    "register": {
+      "confirm_password": "Confirm Password",
+      "title": "Create Account",
+      "button": "Continue",
+      "afterword": {
+        "text": "Already have an account?",
+        "link": "Sign in."
+      }
     }
+
   },
   "header": {
     "sign_in": "Sign-in",
@@ -17,7 +28,10 @@
   },
   "error": {
     "login": {
-      "user_not_exists": ""
+      "user_not_exists": "Invalid email or password."
+    },
+    "register": {
+      "passwords_not_match": "Passwords do not match. Try again."
     }
   }
 }

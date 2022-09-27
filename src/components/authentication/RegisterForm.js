@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import classes from "./styles/LoginForm.module.css";
 import closeIcon from "./styles/images/icon-close.svg";
 import { useTranslation } from "react-i18next";
+import AuthError from "./AuthError";
 
 const RegisterForm = (props) => {
   const { t, i18n } = useTranslation("common");
   const registerEndpoint = "http://127.0.0.1:8000/account/register/";
+  const [registerFailedAlert, setRegisterFailedAlert] = useState(undefined);
 
   async function Register(username, email, password, confirmPassword) {
     const response = await fetch(registerEndpoint, {
@@ -32,14 +34,17 @@ const RegisterForm = (props) => {
 
   const registerSubmitHandler = async (event) => {
     event.preventDefault();
-    // console.log(event);
     const username = event.target[0].value;
     const email = event.target[1].value;
     const password = event.target[2].value;
     const confirmPassword = event.target[4].value;
     if (password !== confirmPassword) {
-      alert("Passwords do not match.");
+      setRegisterFailedAlert(
+        <AuthError>{t("error.register.passwords_not_match")}</AuthError>
+      );
+      alert("baboon");
     } else {
+      setRegisterFailedAlert(undefined);
       const result = Register(username, email, password, confirmPassword);
       console.log(result);
     }
@@ -71,33 +76,40 @@ const RegisterForm = (props) => {
                 <label className="logo sec_s">S</label>
               </div>
             </div>
-            <div className={classes.login_text}>Register Form</div>
-            <label className={classes.label_text}>Username</label>
+            <div className={classes.login_text}>{t("form.register.title")}</div>
+            {registerFailedAlert}
+            <label className={classes.label_text}>
+              {t("form.login.username")}
+            </label>
             <input className="login_input_field" type="text" />
-            <label className={classes.label_text}>E-mail</label>
+            <label className={classes.label_text}>
+              {t("form.login.email")}
+            </label>
             <input className="login_input_field" type="email" />
             <label className={classes.label_text}>
               {t("form.login.password")}
             </label>
             <PasswordField />
-            <label className={classes.label_text}>Confirm Password</label>
+            <label className={classes.label_text}>
+              {t("form.register.confirm_password")}
+            </label>
             <PasswordField />
             <button
               value=""
               type="submit"
               className={`btn btn-primary ${classes.submit_button}`}
             >
-              {t("form.login.log_in")}
+              {t("form.register.button")}
             </button>
             <div className={classes.afterword}>
-              New to Stop & Shop?{" "}
+              {t("form.register.afterword.text", { service: "Stop & Shop" })}{" "}
               <a
                 onClick={() => {
                   props.toLogin();
                 }}
                 href="#"
               >
-                Create your account
+                {t("form.register.afterword.link")}
               </a>
             </div>
           </div>

@@ -2,17 +2,36 @@
   "form": {
     "login": {
       "title": "Увійдіть до {{service}}",
+      "username": "Ім'я користувача",
       "email": "Ел. пошта",
       "password": "Пароль",
-      "log_in": "Увійти",
+      "button": "Увійти",
       "afterword": {
         "text": "Вперше у {{service}}?",
         "link": "Зареєструйтесь."
       }
+    },
+    "register": {
+      "confirm_password": "Підтвердити пароль",
+      "title": "Створити обліковий запис",
+      "button": "Далі",
+      "afterword": {
+        "text": "Вже зареєстровані?",
+        "link": "Увійдіть."
+      }
     }
+
   },
   "header": {
     "sign_in": "Увійти",
     "log_out": "Вийти"
+  },
+  "error": {
+    "login": {
+      "user_not_exists": "Неправильне ім'я користувача або пароль."
+    },
+    "register": {
+      "passwords_not_match": "Паролі не збігаються. Повторіть спробу."
+    }
   }
 }
