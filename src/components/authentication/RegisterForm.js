@@ -1,5 +1,4 @@
 import React from "react";
-import LoginForm from "./LoginForm";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import classes from "./styles/LoginForm.module.css";
@@ -39,7 +38,7 @@ const RegisterForm = (props) => {
     const password = event.target[2].value;
     const confirmPassword = event.target[4].value;
     if (password !== confirmPassword) {
-      alert("Password needs to be equal!");
+      alert("Passwords do not match.");
     } else {
       const result = Register(username, email, password, confirmPassword);
       console.log(result);

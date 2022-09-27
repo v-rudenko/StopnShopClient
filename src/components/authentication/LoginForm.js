@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import { useTranslation } from "react-i18next";
+import AuthError from "./AuthError";
 
 import classes from "./styles/LoginForm.module.css";
 import closeIcon from "./styles/images/icon-close.svg";
@@ -55,9 +56,10 @@ const LoginForm = (props) => {
 
   let loginFailedAlert = undefined;
   if (loginFailed === true) {
-    loginFailedAlert = <div className={classes.alert_div}>Invalid email or password!</div>
+    loginFailedAlert = (
+      <AuthError>Invalid email or password.</AuthError>
+    );
   }
-
 
   return (
     <div>
@@ -84,14 +86,32 @@ const LoginForm = (props) => {
               {t("form.login.title", { service: "Stop & Shop" })}
             </div>
             {loginFailedAlert}
-            <label className={classes.label_text}>{t("form.login.email")}</label>
-            <input className="login_input_field" type="text" required/>
-            <label className={classes.label_text}>{t("form.login.password")}</label>
+            <label className={classes.label_text}>
+              {t("form.login.email")}
+            </label>
+            <input className="login_input_field" type="text" required />
+            <label className={classes.label_text}>
+              {t("form.login.password")}
+            </label>
             <PasswordField />
-            <button value="" type="submit" className={`btn btn-primary ${classes.submit_button}`}>
+            <button
+              value=""
+              type="submit"
+              className={`btn btn-primary ${classes.submit_button}`}
+            >
               {t("form.login.log_in")}
             </button>
-            <div className={classes.afterword}>{t("form.login.afterword.text", { service: "Stop & Shop" })} <a onClick={() => {props.toRegister()}} href="#">{t("form.login.afterword.link")}</a></div>
+            <div className={classes.afterword}>
+              {t("form.login.afterword.text", { service: "Stop & Shop" })}{" "}
+              <a
+                onClick={() => {
+                  props.toRegister();
+                }}
+                href="#"
+              >
+                {t("form.login.afterword.link")}
+              </a>
+            </div>
           </div>
         </div>
       </form>
