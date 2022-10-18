@@ -26,6 +26,7 @@ const Header = (props) => {
   } else {
     return (
       <header className={styles.top_bar}>
+        <button onClick={props.onItemCreation}>Create Item</button>
         <RefreshToken></RefreshToken>
         <button onClick={() => {i18n.changeLanguage('en')}}>Eng</button>
         <button onClick={() => {i18n.changeLanguage('uk')}}>Укр</button>

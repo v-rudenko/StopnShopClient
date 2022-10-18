@@ -3,7 +3,7 @@ import Product from "./Product";
 import classes from "./styles/ProductList.module.css";
 
 const ProductsList = (props) => {
-  const api = "http://localhost:3000/server/items.json";
+  const api = "http://127.0.0.1:8000/item/list/";
 
   const [items, setItems] = useState([]);
   const displayedItems = [];
@@ -18,12 +18,12 @@ const ProductsList = (props) => {
     }
     getItems();
   }, []);
-
+  
   items.map((item) => {
     displayedItems.push(
       <Product
-        key={item.id}
-        img={item.image}
+        key={item.id}              // ID там поки немає
+        img={item.imageurl}
         rating={item.rating}
         price={item.price}
         title={item.name}

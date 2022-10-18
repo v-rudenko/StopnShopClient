@@ -5,11 +5,12 @@ import "./App.css";
 import Header from "./components/UI/navigation/Header";
 import Homepage from "./components/Homepage";
 import { useTranslation } from "react-i18next";
+import ItemCreation from "./components/pages/ItemCreation";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
-
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
+  const [showItemCreation, setShowItemCreation] = useState(false);
 
   useEffect(() => {
     if (localStorage.IsLoggedIn === "1") {
@@ -46,12 +47,31 @@ const App = (props) => {
     setShowAuthForm("login");
   };
 
+  const itemCreationHandler = () => {
+    setShowItemCreation(!showItemCreation);
+  };
+
+  if (showItemCreation === true) {
+    return (
+      <React.Fragment>
+        <Header
+          IsLoggedIn={IsLoggedIn}
+          onButtonPressed={onAuthButtonHandler}
+          onLogout={logoutHandler}
+          onItemCreation={itemCreationHandler}
+        />
+        <ItemCreation></ItemCreation>
+      </React.Fragment>
+    );
+  }
+
   return (
     <>
       <Header
         IsLoggedIn={IsLoggedIn}
         onButtonPressed={onAuthButtonHandler}
         onLogout={logoutHandler}
+        onItemCreation={itemCreationHandler}
       />
 
       <h1>Logged in: {IsLoggedIn.toString()}</h1>
