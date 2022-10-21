@@ -3,9 +3,10 @@ import LoginForm from "./components/authentication/LoginForm";
 import RegisterForm from "./components/authentication/RegisterForm";
 import "./App.css";
 import Header from "./components/UI/navigation/Header";
-import Homepage from "./components/Homepage";
+import Homepage from "./pages/Homepage";
 import { useTranslation } from "react-i18next";
-import ItemCreation from "./components/pages/ItemCreation";
+import ItemCreation from "./pages/ItemCreation";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
@@ -58,7 +59,7 @@ const App = (props) => {
           IsLoggedIn={IsLoggedIn}
           onButtonPressed={onAuthButtonHandler}
           onLogout={logoutHandler}
-          onItemCreation={itemCreationHandler}
+          // onItemCreation={itemCreationHandler}
         />
         <ItemCreation></ItemCreation>
       </React.Fragment>
@@ -71,7 +72,7 @@ const App = (props) => {
         IsLoggedIn={IsLoggedIn}
         onButtonPressed={onAuthButtonHandler}
         onLogout={logoutHandler}
-        onItemCreation={itemCreationHandler}
+        // onItemCreation={itemCreationHandler}
       />
 
       <h1>Logged in: {IsLoggedIn.toString()}</h1>
@@ -89,7 +90,12 @@ const App = (props) => {
           toLogin={toLoginHandler}
         ></RegisterForm>
       )}
-      <Homepage />
+      <Routes>
+        <Route path="/" element={<Navigate  to="/homepage"/>}>
+        </Route>
+        <Route path="/homepage" element={<Homepage />}/>
+        <Route path="/create" element={<ItemCreation/>}/>
+      </Routes>
     </>
   );
 };

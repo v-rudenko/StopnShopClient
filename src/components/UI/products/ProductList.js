@@ -23,6 +23,7 @@ const ProductsList = (props) => {
     displayedItems.push(
       <Product
         key={item.id}              // ID там поки немає
+        id={item.id}
         img={item.imageurl}
         rating={item.rating}
         price={item.price}
