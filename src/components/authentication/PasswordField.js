@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./PasswordField.css";
 import showIcon from "../images/show-password.svg";
 import hideIcon from "../images/hide-password.svg";
-// import "./LoginForm.css"
+import classes from "./styles/PasswordField.module.css"
 
 const PasswordField = () => {
   const [passwordType, setPasswordType] = useState("password");
@@ -20,8 +19,8 @@ const PasswordField = () => {
 
   return (
     <div>
-      <div className="password_field_div">
-        <input required className="login_input_field" type={passwordType} />
+      <div className={classes.password_field_div}>
+        <input required className={classes.input_field} type={passwordType} />
         <button type="button" onClick={TogglePassword}>
           <img src={passwordIcon} alt="" />
         </button>

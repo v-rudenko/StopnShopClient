@@ -3,13 +3,15 @@ import LoginForm from "./components/authentication/LoginForm";
 import RegisterForm from "./components/authentication/RegisterForm";
 import "./App.css";
 import Header from "./components/UI/navigation/Header";
-import Homepage from "./components/Homepage";
+import Homepage from "./pages/Homepage";
 import { useTranslation } from "react-i18next";
+import ItemCreation from "./pages/ItemCreation";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
-  const [showAuthForm, setShowAuthForm] = useState("");
-
+  const [showAuthForm, setShowAuthForm] = useState(undefined);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
+  const [showItemCreation, setShowItemCreation] = useState(false);
 
   useEffect(() => {
     if (localStorage.IsLoggedIn === "1") {
@@ -17,14 +19,19 @@ const App = (props) => {
     }
   });
 
+  const hideFormHandler = (event) => {
+    setShowAuthForm(undefined);
+  };
+
   const loginHandler = () => {
     setIsLoggedIn(true);
+    setShowAuthForm(undefined);
   };
   const logoutHandler = () => {
     localStorage.removeItem("IsLoggedIn");
     localStorage.removeItem("token");
     localStorage.removeItem("refresh");
-    setShowAuthForm("")
+    setShowAuthForm("");
     setIsLoggedIn(false);
   };
 
@@ -33,41 +40,62 @@ const App = (props) => {
     console.log(event.target.value);
   };
 
-  if (IsLoggedIn === false) {
-    if (showAuthForm === "login") {
-      return (
-        <div>
-          <Header
-            IsLoggedIn={IsLoggedIn}
-            onButtonPressed={onAuthButtonHandler}
+  const toRegisterHandler = () => {
+    setShowAuthForm("register");
+  };
 
-          />
-          <LoginForm onLoginSuccess={loginHandler}/>
-        </div>
-      );
-    }
-    if (showAuthForm === "register") {
-      return (
-        <div>
-          <Header
-            IsLoggedIn={IsLoggedIn}
-            onButtonPressed={onAuthButtonHandler}
-          />
-          <RegisterForm />
-        </div>
-      );
-    }
+  const toLoginHandler = () => {
+    setShowAuthForm("login");
+  };
+
+  const itemCreationHandler = () => {
+    setShowItemCreation(!showItemCreation);
+  };
+
+  if (showItemCreation === true) {
+    return (
+      <React.Fragment>
+        <Header
+          IsLoggedIn={IsLoggedIn}
+          onButtonPressed={onAuthButtonHandler}
+          onLogout={logoutHandler}
+          // onItemCreation={itemCreationHandler}
+        />
+        <ItemCreation></ItemCreation>
+      </React.Fragment>
+    );
   }
+
   return (
     <>
       <Header
         IsLoggedIn={IsLoggedIn}
         onButtonPressed={onAuthButtonHandler}
         onLogout={logoutHandler}
+        // onItemCreation={itemCreationHandler}
       />
-      
+
       <h1>Logged in: {IsLoggedIn.toString()}</h1>
-      <Homepage />
+      {showAuthForm === "login" && (
+        <LoginForm
+          onHideForm={hideFormHandler}
+          onLoginSuccess={loginHandler}
+          toRegister={toRegisterHandler}
+        ></LoginForm>
+      )}
+      {showAuthForm === "register" && (
+        <RegisterForm
+          onHideForm={hideFormHandler}
+          onLoginSuccess={loginHandler}
+          toLogin={toLoginHandler}
+        ></RegisterForm>
+      )}
+      <Routes>
+        <Route path="/" element={<Navigate  to="/homepage"/>}>
+        </Route>
+        <Route path="/homepage" element={<Homepage />}/>
+        <Route path="/create" element={<ItemCreation/>}/>
+      </Routes>
     </>
   );
 };

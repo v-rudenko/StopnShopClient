@@ -11,7 +11,21 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+  button:hover {
+    cursor: pointer;
+  }
   .create_account_button {
     margin-right: 60px;
+  }
+}
+
+.login_button {
+  background: #373434;
+  color: white;
+  border-radius: 25px;
+  border: 1px;
+  img {
+    margin-right: 3px;
+    width: 19px;
   }
 }
