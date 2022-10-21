@@ -50,7 +50,8 @@ const LoginForm = (props) => {
     }
   };
 
-  const hideFormHandler = () => {
+  const hideFormHandler = (event) => {
+    event.stopPropagation();
     props.onHideForm();
   };
 
