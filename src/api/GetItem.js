@@ -3,6 +3,7 @@ const GetItem = async (id) => {
   const response = await fetch(api);
   const data = await response.json();
   console.log(data);
+  return data;
 };
 
 export default GetItem;

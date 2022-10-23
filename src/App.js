@@ -7,6 +7,7 @@ import Homepage from "./pages/Homepage";
 import { useTranslation } from "react-i18next";
 import ItemCreation from "./pages/ItemCreation";
 import { Navigate, Route, Routes } from "react-router-dom";
+import ProductPage from "./pages/ProductPage";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
@@ -95,6 +96,7 @@ const App = (props) => {
         </Route>
         <Route path="/homepage" element={<Homepage />}/>
         <Route path="/create" element={<ItemCreation/>}/>
+        <Route path="/product/:productId" element={<ProductPage/>}/>
       </Routes>
     </>
   );

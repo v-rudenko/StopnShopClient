@@ -10,6 +10,10 @@
   border-left: 1px solid #e5e5e5;
   border-top: 1px solid #e5e5e5;
   padding: 53px 23px 16px 23px;
+  cursor: pointer;
+}
+.product_div span {
+  cursor: auto;
 }
 .product_div img {
   display: block;
