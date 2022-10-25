@@ -32,6 +32,8 @@ const Header = (props) => {
     return (
       <header className={styles.top_bar}>
         {/* <button onClick={props.onItemCreation}>Create Item</button> */}
+
+        <Link to={"/"}><button>Go Home</button></Link>
         <Link to={"/create"}><button>Create Item</button></Link>
         <RefreshToken></RefreshToken>
         <button onClick={() => {i18n.changeLanguage('en')}}>Eng</button>

@@ -55,10 +55,12 @@ $input_field_padding: 10px;
   img {
     float: right;
     cursor: pointer;
+    user-select: none;
   }
 }
 
 .logo_inner_div {
+  user-select: none;
   width: 140px;
   display: block;
   margin: 0 auto;
