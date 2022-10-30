@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import GetItem from "../api/GetItem";
 import UpdateItem from "../api/UpdateItem"
+import DeleteItem from "../api/DeleteItem";
 
 const ProductPage = () => {
   const [updateMode, setUpdateMode] = useState(false);
   const params = useParams();
   const [item, setItem] = useState({});
+
+  const navigate = useNavigate();
 
   const updateHandler = () => {
     setUpdateMode(true);
@@ -20,6 +23,13 @@ const ProductPage = () => {
     const ItemPrice = event.target["price"].value
     UpdateItem(params.productId, ItemName, ItemDescription, ItemRating, ItemPrice, ItemImageurl);
     alert("Item Saved!");
+  };
+
+  const ProductDeleteHandler = (event) => {
+    event.stopPropagation();
+    DeleteItem(params.productId);
+    console.log("Продукт видалено!");
+    navigate('/');
   };
 
   useEffect(() => {
@@ -39,7 +49,7 @@ const ProductPage = () => {
         <span>price: {item.price}</span>
         <button>Buy Item</button>
         <button onClick={updateHandler}>Update</button>
-        <button>Delete</button>
+        <button onClick={ProductDeleteHandler}>Delete</button>
       </section>
     );
   } else {
@@ -54,9 +64,9 @@ const ProductPage = () => {
           <h3>Image:</h3>
           <input name="imageurl" type="url" defaultValue={item.imageurl}></input>
           <h3>Rating:</h3>
-          <input name="rating" type="number" defaultValue={item.rating}></input>
+          <input name="rating" type="number" step='0.1' defaultValue={item.rating}></input>
           <h3>Price</h3>
-          <input name="price" type="number" defaultValue={item.price}></input>
+          <input name="price" type="number" step='0.01' defaultValue={item.price}></input>
           <button type="submit">Save</button>
         </form>
       </section>

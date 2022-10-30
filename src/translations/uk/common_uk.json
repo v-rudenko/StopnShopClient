@@ -22,10 +22,14 @@
     }
 
   },
+
+
   "header": {
     "sign_in": "Увійти",
     "log_out": "Вийти"
   },
+
+
   "error": {
     "login": {
       "user_not_exists": "Неправильне ім'я користувача або пароль."
@@ -33,5 +37,14 @@
     "register": {
       "passwords_not_match": "Паролі не збігаються. Повторіть спробу."
     }
+  },
+
+  "item_creation": {
+    "title": "Назва",
+    "description": "Опис",
+    "rating": "Рейтинг",
+    "price": "Ціна",
+    "photo": "Фото",
+    "submit_button": "Створити товар"
   }
 }

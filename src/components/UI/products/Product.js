@@ -5,20 +5,17 @@ import GetItem from "../../../api/GetItem";
 import classes from "./styles/Product.module.css";
 
 const Product = (props) => {
-  const ProductDeleteHandler = (event) => {
-    event.stopPropagation();
-    DeleteItem(props.id);
-    console.log("Продукт видалено!");
-  };
+
   return (
     <div className={classes.product_div}>
       <Link to={`/product/${props.id}`}>
         <img className={classes.image} src={props.img} alt="" />
       </Link>
-      <h1 className={classes.title}>{props.title}</h1>
+      <p className={classes.title}>{props.title}</p>
       <p>Rating: {props.rating}</p>
-      <span>{props.price}</span>
-      <button onClick={ProductDeleteHandler}>Delete</button>
+      <span>{props.price} $</span>
+      <button className={classes.button}>Cart</button>
+      
     </div>
   );
 };
