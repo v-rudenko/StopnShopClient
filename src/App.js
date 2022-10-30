@@ -58,6 +58,7 @@ const App = (props) => {
       <React.Fragment>
         <Header
           IsLoggedIn={IsLoggedIn}
+          // onButtonPressed={toLoginHandler}
           onButtonPressed={onAuthButtonHandler}
           onLogout={logoutHandler}
           // onItemCreation={itemCreationHandler}
@@ -71,7 +72,8 @@ const App = (props) => {
     <>
       <Header
         IsLoggedIn={IsLoggedIn}
-        onButtonPressed={onAuthButtonHandler}
+        onButtonPressed={toLoginHandler}
+        // onButtonPressed={onAuthButtonHandler}
         onLogout={logoutHandler}
         // onItemCreation={itemCreationHandler}
       />

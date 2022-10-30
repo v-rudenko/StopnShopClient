@@ -24,7 +24,7 @@ const Header = (props) => {
           className={styles.login_button}
         >
           <img src={loginIcon} alt="" />
-          {t("header.sign_in")}
+          <span>{t("header.sign_in")}</span>
         </button>
       </header>
     );

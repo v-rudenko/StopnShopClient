@@ -1,5 +1,5 @@
 .top_bar {
-  background-color: black;
+  background-color: #222831;
   height: 60px;
   width: 100%;
   display: flex;
@@ -9,8 +9,10 @@
 }
 .top_bar button {
   margin: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
+  background: #393E46;
+  color: white;
+  border: none;
+  border-radius: 25px;
 }
 .top_bar button:hover {
   cursor: pointer;
@@ -20,12 +22,19 @@
 }
 
 .login_button {
-  background: #373434;
+  position: relative;
+  background: #393E46;
   color: white;
   border-radius: 25px;
-  border: 1px;
+  width: 102px;
+  height: 36px;
+  position: relative;
+  padding-left: 20px;
 }
 .login_button img {
+  position: absolute;
+  left: 11px;
+  bottom: 9px;
   margin-right: 3px;
   width: 19px;
 }/*# sourceMappingURL=Header.module.css.map */

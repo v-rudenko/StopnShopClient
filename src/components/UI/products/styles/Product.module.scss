@@ -4,6 +4,7 @@
 }
 
 .product_div {
+  background-color: #FFF;
   max-height: 450px;
   max-width: 240px;
   min-width: 240px;
@@ -31,7 +32,18 @@
 
 .button {
   float: right;
-  border-radius: 20px;
-  background-color: #816ae8 ;
-  // background-image: '';
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  // background-color: #816ae8 ;   альтернативний колір
+  background-color: #1fb0a8 ;
+}
+
+.image_div {
+  height: 140px;
+  width: 180px;
+  img {
+    user-select: none;
+  }
 }
