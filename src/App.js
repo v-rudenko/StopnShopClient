@@ -4,7 +4,6 @@ import RegisterForm from "./components/authentication/RegisterForm";
 import "./App.css";
 import Header from "./components/UI/navigation/Header";
 import Homepage from "./pages/Homepage";
-import { useTranslation } from "react-i18next";
 import ItemCreation from "./pages/ItemCreation";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
@@ -12,7 +11,7 @@ import ProductPage from "./pages/ProductPage";
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
-  const [showItemCreation, setShowItemCreation] = useState(false);
+  // const [showItemCreation, setShowItemCreation] = useState(false);
 
   useEffect(() => {
     if (localStorage.IsLoggedIn === "1") {
@@ -36,10 +35,10 @@ const App = (props) => {
     setIsLoggedIn(false);
   };
 
-  const onAuthButtonHandler = (event) => {
-    setShowAuthForm(event.target.value);
-    console.log(event.target.value);
-  };
+  // const onAuthButtonHandler = (event) => {
+  //   setShowAuthForm(event.target.value);
+  //   console.log(event.target.value);
+  // };
 
   const toRegisterHandler = () => {
     setShowAuthForm("register");
@@ -49,24 +48,24 @@ const App = (props) => {
     setShowAuthForm("login");
   };
 
-  const itemCreationHandler = () => {
-    setShowItemCreation(!showItemCreation);
-  };
+  // const itemCreationHandler = () => {
+  //   setShowItemCreation(!showItemCreation);
+  // };
 
-  if (showItemCreation === true) {
-    return (
-      <React.Fragment>
-        <Header
-          IsLoggedIn={IsLoggedIn}
-          // onButtonPressed={toLoginHandler}
-          onButtonPressed={onAuthButtonHandler}
-          onLogout={logoutHandler}
-          // onItemCreation={itemCreationHandler}
-        />
-        <ItemCreation></ItemCreation>
-      </React.Fragment>
-    );
-  }
+  // if (showItemCreation === true) {
+  //   return (
+  //     <React.Fragment>
+  //       <Header
+  //         IsLoggedIn={IsLoggedIn}
+  //         // onButtonPressed={toLoginHandler}
+  //         onButtonPressed={onAuthButtonHandler}
+  //         onLogout={logoutHandler}
+  //         // onItemCreation={itemCreationHandler}
+  //       />
+  //       <ItemCreation></ItemCreation>
+  //     </React.Fragment>
+  //   );
+  // }
 
   return (
     <>

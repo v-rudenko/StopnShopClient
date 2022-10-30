@@ -12,7 +12,7 @@ const Product = (props) => {
       <Link to={`/product/${props.id}`}>
         <div className={classes.image_div}><img className={classes.image} src={props.img} alt="" /></div>
       </Link>
-      <p className={classes.title}>{props.title}</p>
+      <Link className={classes.link} to={`/product/${props.id}`}><p className={classes.title}>{props.title}</p></Link>
       <p>Rating: {props.rating}</p>
       <span>{props.price} $</span>
       <button className={classes.button}><img draggable='false' src={cartImg} height="24px" /></button>

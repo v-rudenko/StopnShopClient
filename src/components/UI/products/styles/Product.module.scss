@@ -1,3 +1,9 @@
+
+$default-black: #222831;
+$default-grey: #393E46;
+$default-aqua: #00ADB5;
+$default-white: #EEEEEE;
+
 .image {
   max-height: 138px;
   max-width: 174px;
@@ -11,7 +17,6 @@
   border-left: 1px solid #e5e5e5;
   border-top: 1px solid #e5e5e5;
   padding: 53px 23px 16px 23px;
-  cursor: pointer;
   span {
     cursor: auto;
     font-size: 20px;
@@ -21,6 +26,7 @@
   img {
     display: block;
     margin: 0 auto;
+    cursor: pointer;
   }
 }
 
@@ -28,6 +34,24 @@
   margin-top: 20px;
   font-size: 15px;
   font-weight: 700;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: $default-black;
+}
+.link:hover {
+  text-decoration: none;
+  color: $default-black;
+}
+.link:visited {
+  text-decoration: none;
+  color: $default-black;
+}
+.link:active {
+  text-decoration: none;
+  color: $default-black;
 }
 
 .button {
