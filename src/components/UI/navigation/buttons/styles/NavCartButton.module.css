@@ -1,0 +1,15 @@
+.button {
+  background-color: #00ADB5;
+  margin-right: 30px;
+  height: 40px;
+  width: 80px;
+  position: relative;
+}
+.button img {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+.button span {
+  margin-left: 20px;
+}/*# sourceMappingURL=NavCartButton.module.css.map */

@@ -7,6 +7,8 @@ import Homepage from "./pages/Homepage";
 import ItemCreation from "./pages/ItemCreation";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
+import Cart from "./components/UI/cart/Cart";
+import Backdrop from "./components/UI/helpers/Backdrop";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
@@ -48,25 +50,6 @@ const App = (props) => {
     setShowAuthForm("login");
   };
 
-  // const itemCreationHandler = () => {
-  //   setShowItemCreation(!showItemCreation);
-  // };
-
-  // if (showItemCreation === true) {
-  //   return (
-  //     <React.Fragment>
-  //       <Header
-  //         IsLoggedIn={IsLoggedIn}
-  //         // onButtonPressed={toLoginHandler}
-  //         onButtonPressed={onAuthButtonHandler}
-  //         onLogout={logoutHandler}
-  //         // onItemCreation={itemCreationHandler}
-  //       />
-  //       <ItemCreation></ItemCreation>
-  //     </React.Fragment>
-  //   );
-  // }
-
   return (
     <>
       <Header
@@ -99,6 +82,8 @@ const App = (props) => {
         <Route path="/create" element={<ItemCreation/>}/>
         <Route path="/product/:productId" element={<ProductPage/>}/>
       </Routes>
+      {/* <Backdrop></Backdrop>
+      <Cart></Cart> */}
     </>
   );
 };

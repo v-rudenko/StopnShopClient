@@ -6,6 +6,7 @@ import AuthError from "./AuthError";
 
 import classes from "./styles/LoginForm.module.css";
 import closeIcon from "./styles/images/icon-close.svg";
+import Backdrop from "../UI/helpers/Backdrop";
 
 const api = "http://127.0.0.1:8000/account/api/token/";
 
@@ -66,7 +67,7 @@ const LoginForm = (props) => {
     <div>
       <form value="bob" onSubmit={LoginSubmitHandler} action="">
         <div className={classes.form_centring_div}>
-          <div className={classes.backdrop} onClick={hideFormHandler}></div>
+          <Backdrop onClick={hideFormHandler}/>
           <div className={classes.form_sizing_div}>
             <div className={classes.close}>
               <img

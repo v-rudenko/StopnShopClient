@@ -7,20 +7,26 @@
   align-items: center;
   justify-content: flex-end;
   button {
-    margin: 10px;
-    // padding-left: 15px;
-    // padding-right: 15px;
-    background: #393E46;
     color: white;
     border: none;
     border-radius: 25px;
   }
+
   button:hover {
     cursor: pointer;
   }
   .create_account_button {
     margin-right: 60px;
   }
+}
+.regular_button {
+  margin: 10px;
+  // padding-left: 15px;
+  // padding-right: 15px;
+  background: #393E46;
+  color: white;
+  border: none;
+  border-radius: 25px;
 }
 
 .login_button {

@@ -8,8 +8,6 @@
   justify-content: flex-end;
 }
 .top_bar button {
-  margin: 10px;
-  background: #393E46;
   color: white;
   border: none;
   border-radius: 25px;
@@ -19,6 +17,14 @@
 }
 .top_bar .create_account_button {
   margin-right: 60px;
+}
+
+.regular_button {
+  margin: 10px;
+  background: #393E46;
+  color: white;
+  border: none;
+  border-radius: 25px;
 }
 
 .login_button {

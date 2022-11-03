@@ -1,0 +1,17 @@
+@import "../../../../../App.scss";
+
+.button {
+  background-color: $default-aqua;
+  margin-right: 30px;
+  height: 40px;
+  width: 80px;
+  position: relative;
+  img {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  span {
+    margin-left: 20px;
+  }
+}

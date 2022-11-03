@@ -1,0 +1,10 @@
+.cart {
+  z-index: 100;
+  background: wheat;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  width: 400px;
+}/*# sourceMappingURL=Cart.module.css.map */

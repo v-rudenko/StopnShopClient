@@ -4,6 +4,8 @@ import RefreshToken from "../../authentication/RefreshToken";
 import styles from "./Header.module.css";
 import loginIcon from "../../images/login-icon.png"
 import { Redirect, Link } from "react-router-dom";
+import NavCartButton from "./buttons/NavCartButton";
+import NavRegularButton from "./buttons/NavRegularButton";
 
 const Header = (props) => {
   const [t, i18n] = useTranslation('common');
@@ -36,9 +38,10 @@ const Header = (props) => {
         <Link to={"/"}><button>Go Home</button></Link>
         <Link to={"/create"}><button>Create Item</button></Link>
         <RefreshToken></RefreshToken>
-        <button onClick={() => {i18n.changeLanguage('en')}}>Eng</button>
-        <button onClick={() => {i18n.changeLanguage('uk')}}>Укр</button>
-        <button onClick={props.onLogout}>{t("header.log_out")}</button>
+        <NavRegularButton onClick={() => {i18n.changeLanguage('en')}}>Eng</NavRegularButton>
+        <NavRegularButton onClick={() => {i18n.changeLanguage('uk')}}>Укр</NavRegularButton>
+        <NavRegularButton className={styles.regular_button} onClick={props.onLogout}>{t("header.log_out")}</NavRegularButton>
+        <NavCartButton />
       </header>
     );
   }
