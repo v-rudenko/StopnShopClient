@@ -1,4 +1,5 @@
 import React from "react";
+import NavRegularButton from "../UI/navigation/buttons/NavRegularButton";
 
 
 const RefreshToken = () => {
@@ -37,9 +38,9 @@ const RefreshToken = () => {
   };
 
   return (
-    <button onClick={RefreshTokenHandler} type="button">
+    <NavRegularButton onClick={RefreshTokenHandler} type="button">
       RefreshToken
-    </button>
+    </NavRegularButton>
   );
 };
 

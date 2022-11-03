@@ -36,6 +36,8 @@
   height: 36px;
   position: relative;
   padding-left: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .login_button img {
   position: absolute;
