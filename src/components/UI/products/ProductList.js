@@ -18,16 +18,22 @@ const ProductsList = (props) => {
     }
     getItems();
   }, []);
-  
+
   items.map((item) => {
     displayedItems.push(
       <Product
-        key={item.id}              // ID там поки немає
+        key={item.id} // ID там поки немає
         id={item.id}
         img={item.imageurl}
         rating={item.rating}
         price={item.price}
         title={item.name}
+        item={{
+          id: item.id,
+          name: item.name,
+          image: item.imageurl,
+          price: item.price,
+        }}
       />
     );
   });

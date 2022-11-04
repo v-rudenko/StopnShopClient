@@ -3,7 +3,7 @@ import cartImg from "./images/button_cart.png";
 
 const CartButton = (props) => {
   return (
-    <button className={props.className}>
+    <button onClick={props.onClick} className={props.className}>
       <img draggable="false" src={cartImg} height="24px" />
       {props.children}
     </button>

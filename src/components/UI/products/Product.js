@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DeleteItem from "../../../api/DeleteItem";
-import GetItem from "../../../api/GetItem";
 import classes from "./styles/Product.module.css";
 import CartButton from "./CartButton";
 
 const Product = (props) => {
+
+  const addItemHandler = () => {
+    console.log(props.item);
+  };
 
   return (
     <div className={classes.product_div}>
@@ -15,7 +17,7 @@ const Product = (props) => {
       <Link className={classes.link} to={`/product/${props.id}`}><p className={classes.title}>{props.title}</p></Link>
       <p>Rating: {props.rating}</p>
       <span>{props.price} $</span>
-      <CartButton className={classes.button}></CartButton>
+      <CartButton onClick={addItemHandler} className={classes.button}></CartButton>
       
     </div>
   );
