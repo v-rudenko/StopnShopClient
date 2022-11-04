@@ -9,11 +9,13 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import Cart from "./components/UI/cart/Cart";
 import Backdrop from "./components/UI/helpers/Backdrop";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
-  // const [showItemCreation, setShowItemCreation] = useState(false);
+  const dispatch = useDispatch();
+  const showCart = useSelector((state) => state.cart.showCart);
 
   useEffect(() => {
     if (localStorage.IsLoggedIn === "1") {
@@ -76,14 +78,12 @@ const App = (props) => {
         ></RegisterForm>
       )}
       <Routes>
-        <Route path="/" element={<Navigate  to="/homepage"/>}>
-        </Route>
-        <Route path="/homepage" element={<Homepage />}/>
-        <Route path="/create" element={<ItemCreation/>}/>
-        <Route path="/product/:productId" element={<ProductPage/>}/>
+        <Route path="/" element={<Navigate to="/homepage" />}></Route>
+        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/create" element={<ItemCreation />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
       </Routes>
-      {/* <Backdrop></Backdrop>
-      <Cart></Cart> */}
+      {showCart === true && <Cart></Cart>}
     </>
   );
 };

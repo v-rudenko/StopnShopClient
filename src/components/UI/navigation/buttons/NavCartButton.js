@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { cartActions } from '../../../../store/cart';
 import cartImg from "../../products/images/button_cart.png"
 import classes from "./styles/NavCartButton.module.css"
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavCartButton = (props) => {
+  const dispatch = useDispatch();
   
   const clickHandler = () => {
-    // setShowCart(true);
+    dispatch(cartActions.show());
   }
 
   return (
