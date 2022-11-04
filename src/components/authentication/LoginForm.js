@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import AuthError from "./AuthError";
 
 import classes from "./styles/LoginForm.module.css";
-import closeIcon from "./styles/images/icon-close.svg";
 import Backdrop from "../UI/helpers/Backdrop";
+import CloseButton from "../UI/navigation/buttons/CloseButton";
 
 const api = "http://127.0.0.1:8000/account/api/token/";
 
@@ -70,9 +70,8 @@ const LoginForm = (props) => {
           <Backdrop onClick={hideFormHandler}/>
           <div className={classes.form_sizing_div}>
             <div className={classes.close}>
-              <img
+              <CloseButton
                 onClick={hideFormHandler}
-                src={closeIcon}
                 width="24px"
                 height="24px"
               />

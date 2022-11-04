@@ -1,10 +1,23 @@
 .cart {
   z-index: 100;
-  background: wheat;
+  background-color: #fff;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: auto;
   width: 400px;
+  h3 {
+    font-size: 30px;
+    margin-top: 24px;
+    margin-left: 24px;
+    display: inline-block;
+  }
+}
+
+.close {
+  float: right;
+  margin: 20px;
+  cursor: pointer;
+  user-select: none;
 }

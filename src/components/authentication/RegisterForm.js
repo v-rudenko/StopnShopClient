@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import PasswordField from "./PasswordField";
 import classes from "./styles/LoginForm.module.css";
-import closeIcon from "./styles/images/icon-close.svg";
 import { useTranslation } from "react-i18next";
 import AuthError from "./AuthError";
+import CloseButton from "../UI/navigation/buttons/CloseButton";
 
 const RegisterForm = (props) => {
   const { t, i18n } = useTranslation("common");
@@ -61,9 +61,8 @@ const RegisterForm = (props) => {
           <div className={classes.backdrop} onClick={hideFormHandler}></div>
           <div className={classes.form_sizing_div}>
             <div className={classes.close}>
-              <img
+              <CloseButton
                 onClick={hideFormHandler}
-                src={closeIcon}
                 width="24px"
                 height="24px"
               />
