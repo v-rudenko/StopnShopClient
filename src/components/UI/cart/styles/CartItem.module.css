@@ -1,0 +1,57 @@
+.item_div {
+  height: 120px;
+  background-color: beige;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.close {
+  height: 14px;
+  position: absolute;
+  top: 8px;
+  right: 3px;
+}
+
+.photo_div {
+  padding-left: 10px;
+  max-width: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.photo_div img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.content_div {
+  margin-left: 20px;
+}
+
+.bottom_div {
+  display: flex;
+}
+
+.buttons {
+  position: absolute;
+  padding: 3px;
+  right: 0;
+  margin-right: 25px;
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  background-color: transparent;
+  border-radius: 25px;
+  width: 100px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.buttons span {
+  margin: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}/*# sourceMappingURL=CartItem.module.css.map */

@@ -1,0 +1,58 @@
+@import "../../../../App.scss";
+
+.item_div {
+  height: 120px;
+  background-color: beige;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.close {
+  height: 14px;
+  position: absolute;
+  top: 8px;
+  right: 3px;
+}
+
+.photo_div {
+  padding-left: 10px;
+  max-width: 100px;
+  height: 100%;
+  // text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.content_div {
+  margin-left: 20px;
+}
+
+.bottom_div {
+  display: flex;
+  // position: relative;
+}
+
+.buttons {
+  position: absolute;
+  padding: 3px;
+  right: 0;
+  margin-right: 25px;
+  height: 40px;
+  border: 1px solid $default-border-color;
+  background-color: transparent;
+  border-radius: 25px;
+  width: 100px;
+  user-select: none;
+  span {
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
