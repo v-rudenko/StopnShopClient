@@ -20,7 +20,8 @@ const cartSlice = createSlice({
     removeItem(state, action) {
       const existingItem = state.items.find(item => item.product.id === action.payload);
       state.items.splice(existingItem, 1)
-      console.log(existingItem);
+      state.counter -= existingItem.quantity;
+      // console.log(existingItem);
     },
     increment(state, action) {
       const existingItem = state.items.find(item => item.product.id === action.payload);

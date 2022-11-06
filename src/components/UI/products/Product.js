@@ -11,8 +11,9 @@ const Product = (props) => {
   const items = useSelector((state) => state.cart.items);
 
   const addItemHandler = () => {
-    dispatch(cartActions.addItem({product: props.item, quantity: 1}));
-    console.log(items);
+    dispatch(cartActions.addItem({ product: props.item, quantity: 1 }));
+    dispatch(cartActions.show());
+    // console.log(items);
   };
 
   return (

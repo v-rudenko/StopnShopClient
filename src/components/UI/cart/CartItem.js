@@ -26,7 +26,7 @@ const CartItem = (props) => {
         <div className={classes.content_div}>
           <h6>{props.name}</h6>
           <div className={classes.bottom_div}>
-            <span>{props.price}</span>
+            <span>{props.price}$</span>
             <div className={classes.buttons}>
               <span onClick={decrementHandler}>-</span>
               <span>{props.quantity}</span>
