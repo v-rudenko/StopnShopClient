@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart";
 import Backdrop from "../helpers/Backdrop";
 import CloseButton from "../navigation/buttons/CloseButton";
@@ -8,6 +8,11 @@ import classes from "./styles/Cart.module.css";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+
+  console.log(items);
+  const products = items.map(item => <CartItem key={item.product.id} id={item.product.id} name={item.product.name} image={item.product.image} price={item.product.price} quantity={item.quantity}/>);
+
 
   const hideCartHandler = () => {
     dispatch(cartActions.hide());
@@ -22,7 +27,7 @@ const Cart = () => {
           <CloseButton onClick={hideCartHandler} className={classes.close} />
         </header>
         <main>
-          <CartItem />
+          {products}
         </main>
       </div>
     </>

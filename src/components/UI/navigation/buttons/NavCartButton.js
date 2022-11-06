@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const NavCartButton = (props) => {
   const dispatch = useDispatch();
+  const counter = useSelector(state => state.cart.counter)
   
   const clickHandler = () => {
     dispatch(cartActions.show());
@@ -14,7 +15,7 @@ const NavCartButton = (props) => {
   return (
     <button onClick={clickHandler} className={classes.button}>
       <img draggable="false" src={cartImg} height="24px" />
-      <span>2</span>
+      <span>{counter}</span>
     </button>
   );
 }

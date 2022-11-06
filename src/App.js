@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const showCart = useSelector((state) => state.cart.showCart);
 
   useEffect(() => {

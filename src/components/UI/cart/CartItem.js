@@ -1,29 +1,36 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store/cart";
 import CloseButton from "../navigation/buttons/CloseButton";
 import classes from "./styles/CartItem.module.css";
 
-const CartItem = () => {
-  const item = {
-    id: 10,
-    name: "Monkey",
-    image:
-      "https://cdn.britannica.com/06/150806-050-6AE99C98/Proboscis-monkey.jpg",
-    price: 657,
-  };
+const CartItem = (props) => {
+
+  const dispatch = useDispatch()
+
+  const incrementHandler = () => {
+    dispatch(cartActions.increment(props.id));
+  }
+  const decrementHandler = () => {
+    dispatch(cartActions.decrement(props.id));
+  }
+  const removeItemHandler = () => {
+    dispatch(cartActions.removeItem(props.id));
+  }
 
   return (
     <div className={classes.item_div}>
-      <CloseButton className={classes.close} />
+      <CloseButton onClick={removeItemHandler} className={classes.close} />
       <div className={classes.photo_div}>
-        <img src={item.image} alt="" />
+        <img src={props.image} alt="" />
         <div className={classes.content_div}>
-          <h6>{item.name}</h6>
+          <h6>{props.name}</h6>
           <div className={classes.bottom_div}>
-            <span>{item.price}</span>
+            <span>{props.price}</span>
             <div className={classes.buttons}>
-              <span>-</span>
-              <span>3</span>
-              <span>+</span>
+              <span onClick={decrementHandler}>-</span>
+              <span>{props.quantity}</span>
+              <span onClick={incrementHandler}>+</span>
             </div>
           </div>
         </div>

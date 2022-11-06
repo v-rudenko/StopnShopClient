@@ -34,6 +34,7 @@ const ProductsList = (props) => {
           image: item.imageurl,
           price: item.price,
         }}
+        // quantity={0}     ////////////////////
       />
     );
   });
