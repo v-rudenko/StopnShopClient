@@ -8,7 +8,7 @@ const cartSlice = createSlice({
   reducers: {
     addItem(state, action) {
       const newItem = action.payload
-      console.log(newItem.product.id);
+      // console.log(newItem.product.id);
       const existingItem = state.items.find(item => item.product.id === newItem.product.id);
       if (!existingItem) {
         state.items.push(action.payload);
@@ -19,7 +19,7 @@ const cartSlice = createSlice({
     },
     removeItem(state, action) {
       const existingItem = state.items.find(item => item.product.id === action.payload);
-      state.items.splice(existingItem, 1)
+      state.items.splice(state.items.indexOf(existingItem), 1)
       state.counter -= existingItem.quantity;
       // console.log(existingItem);
     },
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
       existingItem.quantity--;
       state.counter--;
       if (existingItem.quantity <= "0") {
-        state.items.splice(existingItem, 1)
+        state.items.splice(state.items.indexOf(existingItem), 1)
       }
     },
     show(state) {

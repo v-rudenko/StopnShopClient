@@ -10,7 +10,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
 
-  console.log(items);
+  // console.log(items);
   const products = items.map(item => <CartItem key={item.product.id} id={item.product.id} name={item.product.name} image={item.product.image} price={item.product.price} quantity={item.quantity}/>);
 
 
@@ -27,6 +27,7 @@ const Cart = () => {
           <CloseButton onClick={hideCartHandler} className={classes.close} />
         </header>
         <main>
+          {items.length === 0 && <h1>Cart is empty</h1>}
           {products}
         </main>
       </div>
