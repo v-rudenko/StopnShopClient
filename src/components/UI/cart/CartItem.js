@@ -35,7 +35,7 @@ const CartItem = (props) => {
         <div className={classes.content_div}>
           <p className={classes.title}>{props.name}</p>
           <div className={classes.bottom_div}>
-            <span>{props.price}$</span>
+            <span className={classes.price}>{props.price}$</span>
             <div className={classes.buttons}>
               <span onClick={decrementHandler}>-</span>
               <span>{props.quantity}</span>
