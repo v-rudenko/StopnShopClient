@@ -3,7 +3,7 @@
 .item_div {
   height: 120px;
   background-color: beige;
-  padding: 20px;
+  padding: 15px;
   position: relative;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
@@ -56,3 +56,10 @@
     cursor: pointer;
   }
 }
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  overflow: hidden;
+}
+

@@ -19,13 +19,21 @@ const CartItem = (props) => {
     // console.log(props.name);
   }
 
+  // return (
+  //   <div className="row">
+  //     <div className="col"><img src={props.image} alt="" /></div>
+  //     <div className="col">baboon 2</div>
+  //     <div className="col"> baboon 3</div>
+  //   </div>
+  // )
+
   return (
     <div className={classes.item_div}>
       <CloseButton onClick={removeItemHandler} className={classes.close} />
       <div className={classes.photo_div}>
         <img src={props.image} alt="" />
         <div className={classes.content_div}>
-          <h6>{props.name}</h6>
+          <p className={classes.title}>{props.name}</p>
           <div className={classes.bottom_div}>
             <span>{props.price}$</span>
             <div className={classes.buttons}>
