@@ -58,6 +58,10 @@
   border-radius: 50%;
   border: none;
   background-color: #1fb0a8;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .image_div {
