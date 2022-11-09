@@ -1,6 +1,4 @@
 .cart {
-  padding-left: 24px;
-  padding-right: 24px;
   z-index: 100;
   background-color: #fff;
   position: fixed;
@@ -9,6 +7,7 @@
   right: 0;
   left: auto;
   width: 430px;
+  overflow: auto;
 }
 .cart h3 {
   font-size: 30px;
@@ -25,4 +24,42 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.padding_div {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+footer {
+  height: 145px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.footer_content_div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.money {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cart_button {
+  width: 100%;
+  background-color: #00ADB5;
+  border: none;
+  border-radius: 25px;
+  height: 3rem;
+  color: #fff;
+  margin-top: 10px;
 }/*# sourceMappingURL=Cart.module.css.map */

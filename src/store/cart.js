@@ -4,23 +4,19 @@ const initialCartState = { showCart: false, items: [], counter: 0 };
 const localCart = localStorage.getItem("Cart");
 const localCounter = localStorage.getItem("Counter");
 
-
 if (localStorage.getItem("Cart")) {
   initialCartState.items = JSON.parse(localCart);
   initialCartState.counter = JSON.parse(localCounter);
+} else {
+  localStorage.setItem("Counter", JSON.stringify(0));
 }
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
-    initItems(state) {
-      state.items = JSON.parse(localStorage.getItem("Cart"));
-      // alert("innit");
-    },
     addItem(state, action) {
       const newItem = action.payload;
-      // console.log(newItem.product.id);
       const existingItem = state.items.find(
         (item) => item.product.id === newItem.product.id
       );
@@ -29,7 +25,7 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity++;
       }
-      state.counter ++;
+      state.counter++;
       localStorage.setItem("Cart", JSON.stringify(state.items));
       localStorage.setItem("Counter", JSON.stringify(state.counter));
     },
@@ -41,7 +37,6 @@ const cartSlice = createSlice({
       state.counter -= existingItem.quantity;
       localStorage.setItem("Counter", JSON.stringify(state.counter));
       localStorage.setItem("Cart", JSON.stringify(state.items));
-      // console.log(existingItem);
     },
     increment(state, action) {
       const existingItem = state.items.find(

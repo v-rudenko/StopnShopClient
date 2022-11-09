@@ -10,8 +10,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
 
-  // dispatch(cartActions.initItems());
-
   console.log(items);
 
   const products = items.map((item) => (
@@ -33,14 +31,23 @@ const Cart = () => {
     <>
       <Backdrop onClick={hideCartHandler} />
       <div className={classes.cart}>
-        <header>
-          <h3>Cart</h3>
-          <CloseButton onClick={hideCartHandler} className={classes.close} />
-        </header>
-        <main>
-          {items.length === 0 && <h1>Cart is empty</h1>}
-          {products}
-        </main>
+        <div className={classes.padding_div}>
+          <header>
+            <h3>Cart</h3>
+            <CloseButton onClick={hideCartHandler} className={classes.close} />
+          </header>
+          <main>
+            {items.length === 0 && <h1></h1>}
+            {products}
+          </main>
+        </div>
+        <footer>
+          <div className={classes.footer_content_div}>
+            <span className={classes.money_text}>До сплати</span>
+            <span className={classes.money}>1000$</span>
+          </div>
+          <button className={classes.cart_button}>Оформити замовлення</button>
+        </footer>
       </div>
     </>
   );
