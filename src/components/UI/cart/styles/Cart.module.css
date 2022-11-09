@@ -8,6 +8,9 @@
   left: auto;
   width: 430px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .cart h3 {
   font-size: 30px;

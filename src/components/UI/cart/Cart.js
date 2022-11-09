@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart";
 import Backdrop from "../helpers/Backdrop";
@@ -23,6 +23,11 @@ const Cart = () => {
     />
   ));
 
+  let amount = 0;
+  items.forEach((item) => {
+    amount += item.product.price * item.quantity;
+  });
+
   const hideCartHandler = () => {
     dispatch(cartActions.hide());
   };
@@ -36,18 +41,15 @@ const Cart = () => {
             <h3>Cart</h3>
             <CloseButton onClick={hideCartHandler} className={classes.close} />
           </header>
-          <main>
-            {items.length === 0 && <h1></h1>}
-            {products}
-          </main>
+          <main>{products}</main>
         </div>
-        <footer>
+        {items.length > 0 && <footer>
           <div className={classes.footer_content_div}>
             <span className={classes.money_text}>До сплати</span>
-            <span className={classes.money}>1000$</span>
+            <span className={classes.money}>{amount}$</span>
           </div>
           <button className={classes.cart_button}>Оформити замовлення</button>
-        </footer>
+        </footer>}
       </div>
     </>
   );

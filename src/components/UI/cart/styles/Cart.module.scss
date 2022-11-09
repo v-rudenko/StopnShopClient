@@ -10,6 +10,9 @@
   left: auto;
   width: 430px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   h3 {
     font-size: 30px;
     margin-top: 24px;
