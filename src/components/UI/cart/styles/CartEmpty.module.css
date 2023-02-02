@@ -1,1 +1,24 @@
-/*# sourceMappingURL=CartEmpty.module.css.map */
+.wrapper_div {
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart_image {
+  margin-bottom: 20px;
+}
+
+.button {
+  width: 100%;
+  background-color: #00ADB5;
+  border: none;
+  border-radius: 25px;
+  height: 3rem;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #099aa1;
+}/*# sourceMappingURL=CartEmpty.module.css.map */

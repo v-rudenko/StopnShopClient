@@ -10,18 +10,22 @@ import ProductPage from "./pages/ProductPage";
 import Cart from "./components/UI/cart/Cart";
 import Backdrop from "./components/UI/helpers/Backdrop";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
   // const dispatch = useDispatch();
   const showCart = useSelector((state) => state.cart.showCart);
+  const {t, i18n} = useTranslation("common");
 
   useEffect(() => {
+    const lang = localStorage.getItem("lang")
+    i18n.changeLanguage(lang);
     if (localStorage.IsLoggedIn === "1") {
       setIsLoggedIn(true);
     }
-  });
+  }, []);
 
   const hideFormHandler = (event) => {
     setShowAuthForm(undefined);

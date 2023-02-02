@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart";
 import Backdrop from "../helpers/Backdrop";
 import CloseButton from "../navigation/buttons/CloseButton";
+import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
 import classes from "./styles/Cart.module.css";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
+  const {t, i18n} = useTranslation("common");
 
   console.log(items);
 
@@ -18,7 +21,7 @@ const Cart = () => {
       id={item.product.id}
       name={item.product.name}
       image={item.product.image}
-      price={item.product.price}
+      price={item.product.price * item.quantity}
       quantity={item.quantity}
     />
   ));
@@ -38,17 +41,17 @@ const Cart = () => {
       <div className={classes.cart}>
         <div className={classes.padding_div}>
           <header>
-            <h3>Cart</h3>
+            <h3>{t("shopping_cart.header")}</h3>
             <CloseButton onClick={hideCartHandler} className={classes.close} />
           </header>
-          <main>{products}</main>
+          <main>{items.length <= 0 ? <CartEmpty onHideCart={hideCartHandler}/> : products}</main>
         </div>
         {items.length > 0 && <footer>
           <div className={classes.footer_content_div}>
-            <span className={classes.money_text}>До сплати</span>
+            <span className={classes.money_text}>{t("shopping_cart.amount")}</span>
             <span className={classes.money}>{amount}$</span>
           </div>
-          <button className={classes.cart_button}>Оформити замовлення</button>
+          <button className={classes.cart_button}>{t("shopping_cart.button")}</button>
         </footer>}
       </div>
     </>

@@ -46,5 +46,16 @@
     "price": "Price",
     "photo": "Photo",
     "submit_button": "Create item"
+  },
+
+  "shopping_cart": {
+    "header": "Cart",
+    "amount": "Subtotal:",
+    "button": "Proceed to checkout",
+    "empty": {
+      "header": "Your cart is empty",
+      "text": "Add some items to the cart",
+      "button": "Continue shopping" 
+    }
   }
 }

@@ -65,4 +65,8 @@ footer {
   height: 3rem;
   color: #fff;
   margin-top: 10px;
+}
+
+.cart_button:hover {
+  background-color: #099aa1;
 }/*# sourceMappingURL=Cart.module.css.map */

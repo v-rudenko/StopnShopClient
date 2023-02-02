@@ -5,6 +5,7 @@ import classes from "./styles/LoginForm.module.css";
 import { useTranslation } from "react-i18next";
 import AuthError from "./AuthError";
 import CloseButton from "../UI/navigation/buttons/CloseButton";
+import Backdrop from "../UI/helpers/Backdrop";
 
 const RegisterForm = (props) => {
   const { t, i18n } = useTranslation("common");
@@ -46,6 +47,7 @@ const RegisterForm = (props) => {
       setRegisterFailedAlert(undefined);
       const result = Register(username, email, password, confirmPassword);
       console.log(result);
+      props.onLoginSuccess();
     }
   };
   // console.log(username);
@@ -58,7 +60,7 @@ const RegisterForm = (props) => {
     <div>
       <form value="bob" onSubmit={registerSubmitHandler} action="">
         <div className={classes.form_centring_div}>
-          <div className={classes.backdrop} onClick={hideFormHandler}></div>
+          <Backdrop onClick={hideFormHandler}></Backdrop>
           <div className={classes.form_sizing_div}>
             <div className={classes.close}>
               <CloseButton

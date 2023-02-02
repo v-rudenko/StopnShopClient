@@ -28,6 +28,7 @@ const Header = (props) => {
         <NavRegularButton
           onClick={() => {
             i18n.changeLanguage("en");
+            localStorage.setItem('lang', "en");
           }}
         >
           Eng
@@ -35,6 +36,7 @@ const Header = (props) => {
         <NavRegularButton
           onClick={() => {
             i18n.changeLanguage("uk");
+            localStorage.setItem('lang', "uk")
           }}
         >
           Укр
