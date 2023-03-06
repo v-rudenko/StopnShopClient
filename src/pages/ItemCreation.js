@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import classes from "./styles/ItemCreation.module.css"
+import classes from "./styles/ItemCreation.module.scss"
 import { useTranslation } from "react-i18next";
 
 const ItemCreation = () => {
@@ -42,7 +42,7 @@ const ItemCreation = () => {
 
   return (
     <div>
-      <form onSubmit={creationSubmitHandler} action="">
+      <form className={classes.form} onSubmit={creationSubmitHandler} action="">
         <label htmlFor="">{t("item_creation.title")}</label>
         <input name="name" type="text" />
         <label htmlFor="">{t("item_creation.description")}</label>

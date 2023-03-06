@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import classes from "./styles/Product.module.css";
+import classes from "./styles/Product.module.scss";
 import CartButton from "./CartButton";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart";

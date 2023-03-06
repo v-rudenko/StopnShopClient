@@ -6,7 +6,7 @@ import Backdrop from "../helpers/Backdrop";
 import CloseButton from "../navigation/buttons/CloseButton";
 import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
-import classes from "./styles/Cart.module.css";
+import classes from "./styles/Cart.module.scss";
 
 const Cart = () => {
   const dispatch = useDispatch();

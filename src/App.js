@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginForm from "./components/authentication/LoginForm";
 import RegisterForm from "./components/authentication/RegisterForm";
 import "./App.css";
@@ -8,13 +9,15 @@ import ItemCreation from "./pages/ItemCreation";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import Cart from "./components/UI/cart/Cart";
-import Backdrop from "./components/UI/helpers/Backdrop";
+// import Backdrop from "./components/UI/helpers/Backdrop";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 const App = (props) => {
   const [showAuthForm, setShowAuthForm] = useState(undefined);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
+  
+  const navigate = useNavigate()
   // const dispatch = useDispatch();
   const showCart = useSelector((state) => state.cart.showCart);
   const {t, i18n} = useTranslation("common");
@@ -41,6 +44,7 @@ const App = (props) => {
     localStorage.removeItem("refresh");
     setShowAuthForm("");
     setIsLoggedIn(false);
+    navigate("/homepage")
   };
 
   // const onAuthButtonHandler = (event) => {
@@ -66,7 +70,7 @@ const App = (props) => {
         // onItemCreation={itemCreationHandler}
       />
 
-      <h1>Logged in: {IsLoggedIn.toString()}</h1>
+      {/* <h1>Logged in: {IsLoggedIn.toString()}</h1> */}
       {showAuthForm === "login" && (
         <LoginForm
           onHideForm={hideFormHandler}
